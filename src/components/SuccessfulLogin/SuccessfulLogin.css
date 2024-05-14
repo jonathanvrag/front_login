@@ -1,0 +1,50 @@
+.successfulLogin {
+  width: 40vw;
+  height: 40vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.successfulLogin__button {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: auto;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.successfulLogin__button:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .successfulLogin {
+    width: 60vw;
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .successfulLogin {
+    width: 90vw;
+    height: 60vh;
+  }
+
+  .successfulLogin h2 {
+    font-size: 18px;
+  }
+}

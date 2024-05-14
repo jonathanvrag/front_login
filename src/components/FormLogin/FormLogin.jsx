@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import './FormLogin.css';
 import { getLoginApi } from '../../services/loginApi';
 import { useEffect, useState } from 'react';
@@ -10,6 +11,8 @@ export default function FormLogin() {
     formState: { errors },
   } = useForm();
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getLoginApi().then(data => setUsers(data));
@@ -22,7 +25,11 @@ export default function FormLogin() {
     } else if (user.pass !== data.pass) {
       alert('La contraseña no es correcta');
     } else {
-      alert('Login con éxito');
+      setLoading(true);
+      setTimeout(() => {
+        navigate('/successful-login', { state: { user } });
+        setLoading(false);
+      }, 2000);
     }
   };
 
@@ -59,8 +66,14 @@ export default function FormLogin() {
         <a className='formLogin__form-recover' href='/recuperar'>
           ¿Olvidaste tu usuario o contraseña?
         </a>
-        <button className='formLogin__form-button' type='submit'>
-          Iniciar sesión
+        <button
+          className={`formLogin__form-button ${loading ? 'loading' : ''}`}
+          type='submit'>
+          {loading ? (
+            <span className='formLogin__form-loader'></span>
+          ) : (
+            'Iniciar sesión'
+          )}
         </button>
       </form>
       <p className='formLogin__register'>
