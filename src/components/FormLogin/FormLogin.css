@@ -28,6 +28,13 @@
   border: 1px solid gray;
 }
 
+.formLogin__form-recover {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .formLogin__form-button {
   width: 12vw;
   font-size: 16px;
@@ -45,7 +52,7 @@
   color: black;
 }
 
-.formLogin__recover {
+.formLogin__register {
   font-size: 14px;
   color: white;
   text-decoration: none;

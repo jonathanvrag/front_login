@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form';
 import './FormLogin.css';
+import { getLoginApi } from '../../services/loginApi';
+import { useEffect, useState } from 'react';
 
 export default function FormLogin() {
   const {
@@ -7,9 +9,21 @@ export default function FormLogin() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getLoginApi().then(data => setUsers(data));
+  }, []);
 
   const onSubmit = data => {
-    console.log(data);
+    const user = users.find(user => user.user === data.user);
+    if (!user) {
+      alert('El usuario no existe');
+    } else if (user.pass !== data.pass) {
+      alert('La contraseña no es correcta');
+    } else {
+      alert('Login con éxito');
+    }
   };
 
   return (
@@ -17,7 +31,7 @@ export default function FormLogin() {
       <h1>LOGIN</h1>
       <form className='formLogin__form' onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register('usuario', {
+          {...register('user', {
             required: 'El campo usuario es requerido',
             minLength: {
               value: 4,
@@ -28,9 +42,9 @@ export default function FormLogin() {
           type='text'
           placeholder='Usuario'
         />
-        {errors.usuario && <p>{errors.usuario.message}</p>}
+        {errors.user && <p>{errors.user.message}</p>}
         <input
-          {...register('contraseña', {
+          {...register('pass', {
             required: 'El campo contraseña es requerido',
             minLength: {
               value: 4,
@@ -41,14 +55,17 @@ export default function FormLogin() {
           type='password'
           placeholder='Contraseña'
         />
-        {errors.contraseña && <p>{errors.contraseña.message}</p>}
+        {errors.pass && <p>{errors.pass.message}</p>}
+        <a className='formLogin__form-recover' href='/recuperar'>
+          ¿Olvidaste tu usuario o contraseña?
+        </a>
         <button className='formLogin__form-button' type='submit'>
           Iniciar sesión
         </button>
       </form>
-      <a className='formLogin__recover' href='/recuperar'>
-        ¿Olvidaste tu usuario o contraseña?
-      </a>
+      <p className='formLogin__register'>
+        No tienes una cuenta? <a href='/registro'>Regístrate</a>
+      </p>
     </div>
   );
 }
