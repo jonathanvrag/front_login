@@ -1,0 +1,100 @@
+.formLogin {
+  width: 30vw;
+  height: 60vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formLogin__form {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.formLogin__form-input {
+  width: 20vw;
+  font-size: 16px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid gray;
+}
+
+.formLogin__form-button {
+  width: 12vw;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.formLogin__form-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.formLogin__recover {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 0 0 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .formLogin {
+    width: 40vw;
+    height: 60vh;
+  }
+
+  .formLogin__form-input {
+    width: 30vw;
+  }
+
+
+  .formLogin__form-button {
+    width: 25vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .formLogin {
+    width: 50vw;
+    height: 50vh;
+  }
+
+  .formLogin__form-input {
+    width: 40vw;
+  }
+
+  .formLogin__form-button {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formLogin {
+    width: 80vw;
+    height: 50vh;
+  }
+
+  .formLogin__form-input {
+    width: 60vw;
+  }
+
+  .formLogin__form-button {
+    width: 45vw;
+  }
+}
