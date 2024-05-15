@@ -77,7 +77,7 @@ export default function FormLogin() {
         </button>
       </form>
       <p className='formLogin__register'>
-        No tienes una cuenta? <a href='/registro'>Regístrate</a>
+        No tienes una cuenta? <a href='/new-user'>Regístrate</a>
       </p>
     </div>
   );

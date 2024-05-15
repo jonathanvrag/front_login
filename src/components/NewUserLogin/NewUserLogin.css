@@ -1,0 +1,84 @@
+.newUserLogin {
+  width: 30vw;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.newUserLogin__form {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.newUserLogin__form-input {
+  width: 20vw;
+  font-size: 16px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid gray;
+}
+
+.newUserLogin__form-span {
+  margin: -30px 0 -20px 0;
+}
+
+.newUserLogin__form-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.newUserLogin__form-buttons-button {
+  width: auto;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.newUserLogin__form-buttons-button:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .newUserLogin {
+    width: 40vw;
+  }
+
+  .newUserLogin__form {
+    width: 30vw;
+  }
+
+  .newUserLogin__form-input {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .newUserLogin {
+    width: 80vw;
+  }
+
+  .newUserLogin__form {
+    width: 70vw;
+  }
+
+  .newUserLogin__form-input {
+    width: 60vw;
+  }
+}
