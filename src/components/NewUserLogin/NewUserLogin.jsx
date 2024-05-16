@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './NewUserLogin.css';
+import { useState } from 'react';
+import ModalAlert from '../ModalAlert/ModalAlert';
+import { postNewUserLogin } from '../../services/loginApi';
 
 export default function NewUserLogin() {
   const {
@@ -10,10 +13,19 @@ export default function NewUserLogin() {
     watch,
   } = useForm({ mode: 'onChange' });
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
-  const onSubmit = data => {
-    console.log(data);
-    navigate('/');
+  const onSubmit = async data => {
+    setShowModal(true);
+    try {
+      await postNewUserLogin(data);
+      // setTimeout(() => {
+      //   navigate('/');
+      // }, 15000);
+    } catch (error) {
+      console.error('Error:', error);
+      setShowModal(false);
+    }
   };
 
   return (
@@ -109,9 +121,14 @@ export default function NewUserLogin() {
           <button className='newUserLogin__form-buttons-button' type='submit'>
             Registrarse
           </button>
-          <button className='newUserLogin__form-buttons-button'>Volver</button>
+          <button
+            className='newUserLogin__form-buttons-button'
+            onClick={() => navigate('/')}>
+            Volver
+          </button>
         </div>
       </form>
+      {showModal && <ModalAlert />}
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.modalAlert {
+  position: absolute;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalAlert h3 {
+  padding: 5px 10px;
+}
